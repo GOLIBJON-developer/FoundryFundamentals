@@ -10,11 +10,13 @@ contract CounterScript is Script {
 
     function setUp() public {}
 
-    function run() public {
+    function run() external returns (SimpleStorage) {
         vm.startBroadcast();
 
         simpleStorage = new SimpleStorage();
 
         vm.stopBroadcast();
+
+        return simpleStorage;
     }
 }
